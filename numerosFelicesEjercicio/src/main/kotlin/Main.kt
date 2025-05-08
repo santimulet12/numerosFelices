@@ -21,6 +21,9 @@ fun esNumeroFeliz(numero: Int): Boolean {
 
     // Seguimos el bucle mientras no hayamos llegado a 1 y no hayamos detectado un ciclo
     while (num != 1 && !vistos.contains(num)) {
+        // Esta línea imprime el resultado de la comprobación de si el número ya fue visto
+        // Es útil para depuración pero podría eliminarse en una versión final
+        println(!vistos.contains(num))
 
         // Añadimos el número actual al conjunto de números vistos
         vistos.add(num)
@@ -29,14 +32,14 @@ fun esNumeroFeliz(numero: Int): Boolean {
         num = sumaDeCuadradosDeDigitos(num)
     }
 
-    // Si terminamos con 1, es un número feliz; si no, no lo es
+    // Si terminamos con 1, es un número feliz; de lo contrario, no lo es
     return num == 1
 }
 
 /**
  * Calcula la suma de los cuadrados de los dígitos de un número.
  *
- * @param num El número
+ * @param num El número cuyos dígitos se procesarán
  * @return La suma de los cuadrados de cada dígito en el número
  */
 fun sumaDeCuadradosDeDigitos(num: Int): Int {
